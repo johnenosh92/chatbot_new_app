@@ -1,0 +1,126 @@
+$primary-color: #007bff;
+$hover-color: darken($primary-color, 10%);
+$border-radius: 8px;
+
+.chatbot {
+  border: 1px solid #ccc;
+  padding: 15px;
+  width: 500px;
+  height: 600px;
+  border-radius: $border-radius;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+  background-color: #f9f9f9;
+  display: flex;
+  flex-direction: column;
+  
+
+  .header {
+    display: flex;
+    align-items: center;
+    margin-bottom: 10px;
+
+    .chatbot-icon {
+      width: 30px;
+      height: 30px;
+      margin-right: 10px;
+    }
+  }
+
+  .messages {
+    height: 200px;
+    overflow-y: auto;
+    margin-bottom: 10px;
+    padding: 5px;
+    background-color: #fff;
+    border: 1px solid #e0e0e0;
+    border-radius: $border-radius;
+    flex-grow: 1;
+    flex: 1; /* Allows the message area to expand with viewport height */
+  display: flex;
+  flex-direction: column;
+  justify-content: safe flex-end;
+
+    .userMessage {
+      align-self: flex-end;
+      margin: 5px 0;
+      padding: 8px;
+      border-radius: 5px;
+      background-color: #cce5ff; // User message color
+      max-width: 70%;
+      word-wrap: break-word;
+      text-align: right;
+      position: relative;
+    }
+
+    .botMessage {
+      align-self: flex-start;
+      position: relative;
+      margin: 5px 0;
+      padding: 8px;
+      border-radius: 5px;
+      background-color: #e9ecef; // Bot message color
+      max-width: 70%;
+      word-wrap: break-word;
+      text-align: left;
+    }
+
+  }
+
+  .options {
+    margin-bottom: 10px;
+    
+    .option {
+      background-color: $primary-color;
+      color: white;
+      padding: 10px;
+      margin: 5px 0;
+      text-align: center;
+      cursor: pointer;
+      border-radius: 5px;
+      transition: background-color 0.3s ease;
+
+      &:hover {
+        background-color: $hover-color;
+      }
+    }
+  }
+
+  .input-area {
+    display: flex;
+    justify-content: space-between;
+    
+    input {
+      flex-grow: 1;
+      padding: 10px;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+      margin-right: 5px;
+      font-size: 14px;
+      width:85%;
+
+      &:focus {
+        outline: none;
+        border-color: $primary-color;
+      }
+    }
+
+    .send-button {
+      background-color: $primary-color;
+      color: white;
+      border: none;
+      border-radius: 5px;
+      padding: 10px 15px;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+
+      &:hover {
+        background-color: $hover-color;
+      }
+    }
+  }
+}
+
+.disable-events {
+  pointer-events: none;
+  background-color: rgba(128, 128, 128, 0.536) !important;
+}

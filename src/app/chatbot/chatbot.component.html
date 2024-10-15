@@ -1,0 +1,22 @@
+<div class="chatbot">
+    <div class="header"><h2>LSEG Chatbot</h2></div>
+    <div class="messages">
+      <div class="botMessage">Hello! Welcome to LSEG.I'm here to help you.</div>
+      <ng-container *ngFor="let message of messages;index as i" >
+        <div *ngIf="message.sender === 'user'" class="userMessage">{{message.content}}</div>
+        <div  *ngIf="message.sender === 'bot'" class="botMessage options">
+          {{message.content.header}}
+          <div *ngFor="let option of message.content.options" class="option" [ngClass]="{'disable-events': i < (messages.length - 1)}" (click)="onOptionClick(message.content.type,option.code)">
+            {{ option.name }}
+          </div>
+        </div>
+      </ng-container>
+  </div>
+    <div class="input-area">
+      <input
+        disabled="disabled" class="disable-events"
+      />
+      <button  class="send-button disable-events" disabled="disabled">Send</button>
+    </div>
+  </div>
+  
